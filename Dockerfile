@@ -9,4 +9,4 @@ RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.72/bin/apache-tomcat-9.0.
 RUN cd /tmp && tar -xf tomcat.tar.gz
 RUN cp -Rv /tmp/apache-tomcat-9.0.72/* /usr/local/tomcat/
 # Deploy war file
-RUN /target/*.war /usr/local/tomcat/webapps/
+RUN ./target/*.war /usr/local/tomcat/webapps/
