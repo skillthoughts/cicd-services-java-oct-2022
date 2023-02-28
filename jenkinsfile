@@ -1,0 +1,27 @@
+pipeline
+{
+agent any
+stages
+{
+stage('Checkout SCM')
+{
+   steps
+   {
+   script
+   {
+   git 'https://github.com/skillthoughts/cicd-services-java-oct-2022.git'
+   }
+   }
+   }
+stage('Maven Build')
+{
+   steps
+   {
+   script
+   {
+   sh "mvn clean package"
+   }
+  }
+}
+}
+}
