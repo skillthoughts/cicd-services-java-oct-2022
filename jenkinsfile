@@ -23,5 +23,13 @@ stage('Maven Build')
    }
   }
 }
+stage('Docker Build') {
+      steps {
+      script
+      {
+      	sh 'docker build -t skillthoughts/tomcat:1.0 .'
+      }
+      }
+    }
 }
 }
