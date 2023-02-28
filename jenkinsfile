@@ -28,8 +28,8 @@ stage('Docker Build') {
       script
       {
       withDockerRegistry(credentialsId: 'docker-reg-creds', url: 'https://index.docker.io/v1/') {
-    sh 'docker build -t skillthoughts/tomcat:1.0 .'
-    sh 'docker push skillthoughts/tomcat:1.0'
+    sh 'docker build -t skillthoughts/tomcat:2.0 .'
+    sh 'docker push skillthoughts/tomcat:2.0'
 }
       }
       }
