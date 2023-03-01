@@ -41,7 +41,6 @@ stage('Docker Image Build') {
     script
     {
     sh 'cp -rf $WORKSPACE/ansible /etc'
-    sh 'chmod -R 777 /etc/ansible'
     ansiblePlaybook credentialsId: '61910cfc-11e3-4e19-806d-3897a06d2a41', installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
     }
     }
