@@ -1,2 +1,2 @@
 [cp]
-container-platform ansible_hosts=192.168.0.225
+container-platform ansible_host=192.168.0.225
