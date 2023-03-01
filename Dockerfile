@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:16.04
 
 # Install prerequisites
 RUN apt-get -y update && apt-get -y upgrade
