@@ -23,7 +23,7 @@ stage('Maven Build')
    }
   }
 }
-stage('Docker Build') {
+stage('Docker Image Build') {
       steps {
       script
       {
