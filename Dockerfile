@@ -1,12 +1,12 @@
-FROM ubuntu:16.04
+FROM ubuntu
 
 # Install prerequisites
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install openjdk-8-jdk wget
 RUN apt-get -y install curl
-RUN mkdir /usr/local/tomcat
+RUN mkdir /opt/tomcat
 RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.72/bin/apache-tomcat-9.0.72.tar.gz -O /tmp/tomcat.tar.gz
 RUN cd /tmp && tar -xf tomcat.tar.gz
-RUN cp -Rv /tmp/apache-tomcat-9.0.72/* /usr/local/tomcat/
+RUN cp -Rv /tmp/apache-tomcat-9.0.72/* /opt/tomcat/
 # Deploy war file
-COPY ./target/*.war /usr/local/tomcat/webapps/
+COPY ./target/*.war /opt/tomcat/webapps/
