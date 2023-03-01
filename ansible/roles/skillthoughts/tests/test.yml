@@ -1,0 +1,5 @@
+---
+- hosts: container-platform
+  remote_user: root
+  roles:
+    - skillthoughts
