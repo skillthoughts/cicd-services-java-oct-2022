@@ -34,5 +34,15 @@ stage('Docker Image Build') {
       }
       }
     }
+    stage('deploy application using ansible')
+    {
+    steps
+    {
+    script
+    {
+    ansiblePlaybook credentialsId: 'tomcat-creds', installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
+    }
+    }
+    }
 }
 }
