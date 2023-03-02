@@ -13,4 +13,4 @@ COPY ./target/*.war /opt/tomcat/webapps/
 #entrypoint ["/opt/tomcat/bin/catalina.sh", "run"]
 EXPOSE 8080
 # adding following section for starting tomcat server
-CMD ["startup.sh", "run"]
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]

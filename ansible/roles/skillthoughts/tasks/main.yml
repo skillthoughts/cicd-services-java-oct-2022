@@ -8,7 +8,7 @@
   raw: docker system prune -af
 
 - name: deploy application to thet target system
-  raw: docker run -dti --name st -p 80:8080 skillthoughts/tomcat:2.0 
+  raw: docker run -ti --name st -p 80:8080 skillthoughts/tomcat:2.0 
 
 #- name: start tomcat server
 #  raw: docker exec -it st /bin/bash -c 'cd /opt/tomcat/bin/ && ./startup.sh'
