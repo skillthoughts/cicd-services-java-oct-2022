@@ -12,4 +12,5 @@ RUN cp -Rv /tmp/apache-tomcat-9.0.72/* /opt/tomcat/
 COPY ./target/*.war /opt/tomcat/webapps/
 #entrypoint ["/opt/tomcat/bin/catalina.sh", "run"]
 EXPOSE 8080
+# adding following section for starting tomcat
 CMD ["catalina.sh", "run"]
