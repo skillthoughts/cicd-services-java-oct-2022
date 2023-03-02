@@ -10,4 +10,4 @@ RUN cd /tmp && tar -xf tomcat.tar.gz
 RUN cp -Rv /tmp/apache-tomcat-9.0.72/* /opt/tomcat/
 # Deploy war file
 COPY ./target/*.war /opt/tomcat/webapps/
-entrypoint ["/opt/tomcat/bin/catalina.sh", "run"]
+#entrypoint ["/opt/tomcat/bin/catalina.sh", "run"]
