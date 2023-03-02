@@ -41,7 +41,7 @@ stage('Docker Image Build') {
     script
     {
     sh 'cp -rf $WORKSPACE/ansible /etc'
-    ansiblePlaybook credentialsId: 'ssh-key-store', installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
+    ansiblePlaybook credentialsId: 'ssh-key-store', disableHostKeyChecking: true, installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
     }
     }
     }
