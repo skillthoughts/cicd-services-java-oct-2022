@@ -11,4 +11,4 @@
   raw: docker run -dti --name st -p 80:8080 skillthoughts/tomcat:2.0 /bin/bash
 
 - name: start tomcat server
-  command: docker exec -it st /bin/bash -c 'cd /opt/tomcat/bin/ && ./startup.sh'
+  raw: docker exec -it st /bin/bash -c 'cd /opt/tomcat/bin/ && ./startup.sh'
