@@ -4,8 +4,11 @@
   raw: docker rm -f st
   ignore_errors: true
 
+- name: remove unsed docker resources
+  raw: docker system prune -af
+
 - name: deploy application to thet target system
   raw: docker run -dti --name st -p 80:8080 skillthoughts/tomcat:2.0 /bin/bash
 
 - name: start tomcat server
-  command: docker exec -it st /bin/bash -c 'sh /opt/tomcat/bin/startup.sh'
+  command: docker exec -it st /bin/bash -c 'cd /opt/tomcat/bin/ && ./startup.sh'
