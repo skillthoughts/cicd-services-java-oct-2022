@@ -56,10 +56,10 @@ stage('Docker Image Build') {
     {
     if("$params.select_target_env}" == "dev")
     {
-    sh 'cp -rf $WORKSPACE/ansible /etc'
-    sh 'cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'echo port: 76 >> /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'envname: dev >> /etc/ansible/roles/skillthoughts/vars/main.yml'
+    sh "cp -rf $WORKSPACE/ansible /etc"
+    sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "echo port: 76 >> /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "envname: dev >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     sh "appversion: ${params.select_app_version} >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     ansiblePlaybook disableHostKeyChecking: true, installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
     }
@@ -75,10 +75,10 @@ stage('Docker Image Build') {
     {
     if("$params.select_target_env}" == "qa")
     {
-    sh 'cp -rf $WORKSPACE/ansible /etc'
-    sh 'cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'echo port: 77 >> /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'envname: qa >> /etc/ansible/roles/skillthoughts/vars/main.yml'
+    sh "cp -rf $WORKSPACE/ansible /etc"
+    sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "echo port: 77 >> /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "envname: qa >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     sh "appversion: ${params.select_app_version} >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     ansiblePlaybook disableHostKeyChecking: true, installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
     }
@@ -94,10 +94,10 @@ stage('Docker Image Build') {
     {
     if("$params.select_target_env}" == "stage")
     {
-    sh 'cp -rf $WORKSPACE/ansible /etc'
-    sh 'cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'echo port: 78 >> /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'envname: stage >> /etc/ansible/roles/skillthoughts/vars/main.yml'
+    sh "cp -rf $WORKSPACE/ansible /etc"
+    sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "echo port: 78 >> /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "envname: stage >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     sh "appversion: ${params.select_app_version} >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     ansiblePlaybook disableHostKeyChecking: true, installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
     }
@@ -113,10 +113,10 @@ stage('Docker Image Build') {
     {
     if("$params.select_target_env}" == "uat")
     {
-    sh 'cp -rf $WORKSPACE/ansible /etc'
-    sh 'cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'echo port: 79 >> /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'envname: uat >> /etc/ansible/roles/skillthoughts/vars/main.yml'
+    sh "cp -rf $WORKSPACE/ansible /etc"
+    sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "echo port: 79 >> /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "envname: uat >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     sh "appversion: ${params.select_app_version} >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     ansiblePlaybook disableHostKeyChecking: true, installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
     }
@@ -132,10 +132,10 @@ stage('Docker Image Build') {
     {
     if("$params.select_target_env}" == "prod")
     {
-    sh 'cp -rf $WORKSPACE/ansible /etc'
-    sh 'cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'echo port: 80 >> /etc/ansible/roles/skillthoughts/vars/main.yml'
-    sh 'envname: prod >> /etc/ansible/roles/skillthoughts/vars/main.yml'
+    sh "cp -rf $WORKSPACE/ansible /etc"
+    sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "echo port: 80 >> /etc/ansible/roles/skillthoughts/vars/main.yml"
+    sh "envname: prod >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     sh "appversion: ${params.select_app_version} >> /etc/ansible/roles/skillthoughts/vars/main.yml"
     ansiblePlaybook disableHostKeyChecking: true, installation: 'PATH', inventory: '/etc/ansible/roles/skillthoughts/tests/inventory', playbook: '/etc/ansible/roles/skillthoughts/tests/test.yml'
     }
