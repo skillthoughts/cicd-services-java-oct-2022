@@ -3,7 +3,7 @@ pipeline
 agent any
 parameters {
     choice(name: 'select_target_env', choices: ['dev', 'qa', 'stage', 'uat', 'prod'], description: 'select target env to deploy' )
-    choice(name: 'select_app_version', choice: ['2.0', '3.0', '4.0'], description: 'select version required version')
+    choice(name: 'select_app_version', choices: ['2.0', '3.0', '4.0'], description: 'select version required version')
   }
 stages
 {
