@@ -33,7 +33,7 @@ steps
 {
 script
 {
-sh 'echo ${params.select_app_version}'
+echo "${params.select_app_version}"
 }
 }
 }
