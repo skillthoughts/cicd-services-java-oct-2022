@@ -27,12 +27,21 @@ stage('Maven Build')
    }
   }
 }
+stage('print param value')
+{
+steps
+{
+script
+{
+sh 'echo ${params.select_app_version}'
+}
+}
+}
 stage('Docker Image Build') {
       steps {
       script
       {
       withDockerRegistry(credentialsId: 'docker-reg-creds', url: 'https://index.docker.io/v1/') {
-    sh 'echo ${params.select_app_version}'
     sh 'docker build -t skillthoughts/tomcat:${params.select_app_version} .'
     sh 'docker push skillthoughts/tomcat:${params.select_app_version}'
 }
