@@ -54,7 +54,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("$params.select_target_env}" == "dev")
+    if("${params.select_target_env}" == "dev")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -73,7 +73,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("$params.select_target_env}" == "qa")
+    if("${params.select_target_env}" == "qa")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -92,7 +92,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("$params.select_target_env}" == "stage")
+    if("${params.select_target_env}" == "stage")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -111,7 +111,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("$params.select_target_env}" == "uat")
+    if("${params.select_target_env}" == "uat")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -130,7 +130,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("$params.select_target_env}" == "prod")
+    if("${params.select_target_env}" == "prod")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
