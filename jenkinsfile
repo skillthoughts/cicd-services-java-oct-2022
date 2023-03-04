@@ -51,7 +51,7 @@ stage('SonarQube Analysis') {
 	{
 	script
 	{
-          timeout(time: 2, unit: 'MINUTES') {
+          timeout(time: 20, unit: 'MINUTES') {
               def qg = waitForQualityGate()
               if (qg.status != 'OK') {
                    slackSend baseUrl: 'https://hooks.slack.com/services/',
