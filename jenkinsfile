@@ -40,7 +40,7 @@ stage('SonarQube Analysis') {
     {
         withSonarQubeEnv('sonar9') { 
           //sh "mvn sonar:sonar"
-		  mvn clean verify sonar:sonar   -Dsonar.projectKey=demoproject   -Dsonar.host.url=http://44.211.85.194:9000   -Dsonar.login=sqp_b232275a1695e6d862381528610ef2efa453e0d3
+		  sh "mvn clean verify sonar:sonar   -Dsonar.projectKey=demoproject   -Dsonar.host.url=http://44.211.85.194:9000   -Dsonar.login=sqp_b232275a1695e6d862381528610ef2efa453e0d3"
         }
     }
 	}
