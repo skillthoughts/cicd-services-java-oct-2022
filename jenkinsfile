@@ -47,6 +47,10 @@ stage('SonarQube Analysis') {
 	}
 	}
 	stage("Quality Gate Statuc Check"){
+	steps
+	{
+	script
+	{
           timeout(time: 1, unit: 'HOURS') {
               def qg = waitForQualityGate()
               if (qg.status != 'OK') {
@@ -59,7 +63,9 @@ stage('SonarQube Analysis') {
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
           }
-      }    
+      } 
+}
+}	  
 stage('print param value')
 {
 steps
