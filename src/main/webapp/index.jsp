@@ -5,9 +5,7 @@
 <body>
 	<h1>Hello DevOps & Cloud Good Morning!</h1>
 	<p>
-		It is now
+		It is now appversion is 2.0
 		<%= new java.util.Date() %></p>
-	<p>
-		You are coming from 
-		<%= request.getRemoteAddr()  %></p>
+	
 </body>
