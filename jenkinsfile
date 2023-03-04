@@ -164,4 +164,9 @@ stage('Docker Image Build') {
     }
     }
 }
+post { 
+        always { 
+            cleanWs()
+        }
+    }
 }
