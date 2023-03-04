@@ -31,6 +31,20 @@ stage('Maven Build')
    }
   }
 }
+stage('SonarQube Analysis') {
+        steps
+		{
+		script
+		{
+		if(("${params.select_action_type}" == "onlybuild") || ("${params.select_action_type}" == "buildndeploy"))
+    {
+        withSonarQubeEnv('sonar9') { 
+          sh "mvn sonar:sonar"
+        }
+    }
+	}
+	}
+	}
 stage('print param value')
 {
 steps
