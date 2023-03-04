@@ -4,6 +4,7 @@ agent any
 parameters {
     choice(name: 'select_target_env', choices: ['dev', 'qa', 'stage', 'uat', 'prod'], description: 'select target env to deploy' )
     choice(name: 'select_app_version', choices: ['2.0', '3.0', '4.0'], description: 'select version required version')
+	choice(name: 'select_deployment_type', choices: ['buildndeploy', 'onlydeploy'], description: 'select deployment type' )
   }
 stages
 {
@@ -23,7 +24,10 @@ stage('Maven Build')
    {
    script
    {
+   if("${params.select_deployment_type}" == "buildndeploy")
+    {
    sh "mvn clean package"
+   }
    }
   }
 }
@@ -33,7 +37,10 @@ steps
 {
 script
 {
+if("${params.select_deployment_type}" == "buildndeploy")
+    {
 echo "${params.select_app_version}"
+}
 }
 }
 }
@@ -41,11 +48,14 @@ stage('Docker Image Build') {
       steps {
       script
       {
+	  if("${params.select_deployment_type}" == "buildndeploy")
+    {
       withDockerRegistry(credentialsId: 'docker-reg-creds', url: 'https://index.docker.io/v1/') {
     sh "docker build -t skillthoughts/tomcat:${params.select_app_version} ."
     sh "docker push skillthoughts/tomcat:${params.select_app_version}"
 }
       }
+	  }
       }
     }
     stage('deploy application using ansible on dev env')
@@ -54,7 +64,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "dev")
+    if("${params.select_target_env}" == "dev" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -73,7 +83,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "qa")
+    if("${params.select_target_env}" == "qa" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -92,7 +102,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "stage")
+    if("${params.select_target_env}" == "stage" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -111,7 +121,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "uat")
+    if("${params.select_target_env}" == "uat" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -130,7 +140,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "prod")
+    if("${params.select_target_env}" == "prod" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
