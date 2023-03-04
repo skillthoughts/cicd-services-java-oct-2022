@@ -64,7 +64,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "dev" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
+    if(("${params.select_target_env}" == "dev" && ("${params.select_deployment_type}" == "buildndeploy") || ("${params.select_deployment_type}" == "onlydeploy"))
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -83,7 +83,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "qa" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
+    if(("${params.select_target_env}" == "qa" && ("${params.select_deployment_type}" == "buildndeploy") || ("${params.select_deployment_type}" == "onlydeploy"))
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -102,7 +102,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "stage" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
+    if(("${params.select_target_env}" == "stage" && ("${params.select_deployment_type}" == "buildndeploy") || ("${params.select_deployment_type}" == "onlydeploy"))
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
@@ -121,7 +121,7 @@ stage('Docker Image Build') {
     {
     script
     {
-    if("${params.select_target_env}" == "uat" && "${params.select_deployment_type}" == "buildndeploy" && "${params.select_deployment_type}" == "onlydeploy")
+    if(("${params.select_target_env}" == "uat" && ("${params.select_deployment_type}" == "buildndeploy") || ("${params.select_deployment_type}" == "onlydeploy"))
     {
     sh "cp -rf $WORKSPACE/ansible /etc"
     sh "cat /dev/null > /etc/ansible/roles/skillthoughts/vars/main.yml"
