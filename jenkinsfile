@@ -2,9 +2,9 @@ pipeline
 {
 agent any
 parameters {
-    choice(name: 'select_target_env', choices: ['dev', 'qa', 'stage', 'uat', 'prod'], description: 'select target env to deploy' )
-    choice(name: 'select_app_version', choices: ['2.0', '3.0', '4.0'], description: 'select version required version')
-	choice(name: 'select_deployment_type', choices: ['buildndeploy', 'onlydeploy'], description: 'select deployment type' )
+    choice(name: 'select_target_env', choices: ['select option below', 'dev', 'qa', 'stage', 'uat', 'prod'], description: 'select target env to deploy' )
+    choice(name: 'select_app_version', choices: ['select option below', '2.0', '3.0', '4.0'], description: 'select version required version')
+	choice(name: 'select_deployment_type', choices: ['select option below', 'buildndeploy', 'onlybuild', 'onlydeploy'], description: 'select deployment type' )
   }
 stages
 {
@@ -24,7 +24,7 @@ stage('Maven Build')
    {
    script
    {
-   if("${params.select_deployment_type}" == "buildndeploy")
+   if(("${params.select_deployment_type}" == "onlybuild") || ("${params.select_deployment_type}" == "buildndeploy"))
     {
    sh "mvn clean package"
    }
@@ -37,10 +37,7 @@ steps
 {
 script
 {
-if("${params.select_deployment_type}" == "buildndeploy")
-    {
 echo "${params.select_app_version}"
-}
 }
 }
 }
