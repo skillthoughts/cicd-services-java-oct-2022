@@ -14,9 +14,7 @@ stage('Checkout SCM')
    {
    script
    {
-   //git 'https://github.com/skillthoughts/cicd-services-java-oct-2022.git'
-   //git 'https://github.com/javahometech/my-app.git'
-   git 'https://github.com/ravdy/sonar-project.git'
+   git 'https://github.com/skillthoughts/cicd-services-java-oct-2022.git'
    }
    }
    }
