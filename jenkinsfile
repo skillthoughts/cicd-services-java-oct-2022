@@ -14,7 +14,8 @@ stage('Checkout SCM')
    {
    script
    {
-   git 'https://github.com/skillthoughts/cicd-services-java-oct-2022.git'
+   //git 'https://github.com/skillthoughts/cicd-services-java-oct-2022.git'
+   git 'https://github.com/spring-projects/spring-petclinic.git'
    }
    }
    }
