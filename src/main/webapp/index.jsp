@@ -5,7 +5,7 @@
 <body>
 	<h1>Hello DevOps & Cloud Good Morning!</h1>
 	<p>
-		It is now appversion is 2.0
+		It is now appversion is 3.0
 		<%= new java.util.Date() %></p>
 	
 </body>
